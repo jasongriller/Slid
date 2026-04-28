@@ -1,0 +1,24 @@
+{
+  "name": "slidesmith-monorepo",
+  "private": true,
+  "version": "0.1.0",
+  "license": "MIT",
+  "description": "Slidesmith — AI-powered, design-system-first slide deck creator. Monorepo containing the Vue 3 frontend, the @slidesmith/schema typed contract, and the Rust + Rocket API.",
+  "workspaces": [
+    "slidesmith-schema",
+    "slidesmith"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=slidesmith",
+    "build": "npm run build --workspace=slidesmith-schema && npm run build --workspace=slidesmith",
+    "build:schema": "npm run build --workspace=slidesmith-schema",
+    "build:app": "npm run build --workspace=slidesmith",
+    "test": "npm run test --workspaces --if-present",
+    "test:schema": "npm run test --workspace=slidesmith-schema",
+    "test:app": "npm run test --workspace=slidesmith",
+    "lint": "npm run lint --workspaces --if-present",
+    "api:dev": "cargo run --manifest-path slidesmith-api/Cargo.toml",
+    "api:test": "cargo test --manifest-path slidesmith-api/Cargo.toml",
+    "api:migrate": "cargo run --manifest-path slidesmith-api/migration/Cargo.toml -- up"
+  }
+}

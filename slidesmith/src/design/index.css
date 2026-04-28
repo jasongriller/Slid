@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Theme variable defaults — Minimal Mono. Overridden at runtime by applyTheme. */
+:root {
+    --ss-bg: #FFFFFF;
+    --ss-surface: #F7F7F7;
+    --ss-ink: #0A0A0A;
+    --ss-ink-muted: #1F1F1F;
+    --ss-ink-soft: #6B6B6B;
+    --ss-rule: #E5E5E5;
+    --ss-accent: #0A0A0A;
+}
+
+html, body, #app {
+    height: 100%;
+}
+
+/* Strip browser defaults for a cleaner editor canvas. */
+button {
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    color: inherit;
+    font: inherit;
+}
+
+/* Slide canvas baseline: a fixed-size frame. */
+.ss-canvas {
+    width: 1920px;
+    height: 1080px;
+    position: relative;
+    overflow: hidden;
+    background: var(--ss-bg);
+    color: var(--ss-ink);
+}
+
+/* Print rules so PDF export emits a single page per slide at 16:9. */
+@media print {
+    @page {
+        size: 1920px 1080px;
+        margin: 0;
+    }
+
+    body {
+        background: white;
+    }
+
+    .ss-canvas {
+        page-break-after: always;
+    }
+}

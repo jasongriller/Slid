@@ -1,0 +1,11 @@
+[default]
+address = "127.0.0.1"
+port = 8000
+keep_alive = 5
+log_level = "normal"
+
+[debug]
+log_level = "debug"
+
+[release]
+log_level = "normal"
