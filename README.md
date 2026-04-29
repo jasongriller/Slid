@@ -1,20 +1,20 @@
-Slidesmith
+Slid
 ===============================================
 
 Author: **[Your Name](https://yoursite.dev)**
 
 ## Introduction
-**Slidesmith** is an AI-powered slide deck creator focused on proposal-quality, visually polished UI slides — the opposite of the generic decks Gamma, Tome, and Beautiful.ai produce. It is composed of three packages in a single monorepo: a Vue 3 + TypeScript frontend, a typed `@slidesmith/schema` shared package, and a Rust + Rocket API.
+**Slid** is an AI-powered slide deck creator focused on proposal-quality, visually polished UI slides — the opposite of the generic decks Gamma, Tome, and Beautiful.ai produce. It is composed of three packages in a single monorepo: a Vue 3 + TypeScript frontend, a typed `@slid/schema` shared package, and a Rust + Rocket API.
 
-[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/your-user/slidesmith)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/your-user/slid)
 
-#### 🚧 Slidesmith is a work in progress.
+#### 🚧 Slid is a work in progress.
 
 ---
 
 ## Screenshots
 
-![Slidesmith](/screenshots/slidesmith.png)
+![Slid](/screenshots/slid.png)
 
 | ![Editor](/screenshots/Editor.webp)         | ![Cover](/screenshots/Cover.webp)         | ![SplitHero](/screenshots/SplitHero.webp)   |
 | :-----------------------------------------: | :---------------------------------------: | :-----------------------------------------: |
@@ -25,9 +25,9 @@ Author: **[Your Name](https://yoursite.dev)**
 
 ## Repo layout
 ````
-slidesmith/         # Vue 3 + TS + Pinia + Tailwind + Vite (frontend)
-slidesmith-schema/  # @slidesmith/schema — Zod schema, design tokens, layout registry
-slidesmith-api/     # Rust + Rocket + SeaORM + JWT (backend)
+slid/         # Vue 3 + TS + Pinia + Tailwind + Vite (frontend)
+slid-schema/  # @slid/schema — Zod schema, design tokens, layout registry
+slid-api/     # Rust + Rocket + SeaORM + JWT (backend)
 ````
 
 The TypeScript packages are wired together as **npm workspaces** so a single `npm install` at the repo root installs and links everything. The Rust crate is its own Cargo workspace alongside.
@@ -54,7 +54,7 @@ Run the API:
 $ npm run api:dev
 ````
 
-(or directly: `cargo run --manifest-path slidesmith-api/Cargo.toml`)
+(or directly: `cargo run --manifest-path slid-api/Cargo.toml`)
 
 Run database migrations:
 
@@ -69,26 +69,26 @@ $ npm run build
 
 ## Test
 ````
-$ npm test           # Jest across slidesmith-schema and slidesmith
-$ npm run api:test   # cargo test for slidesmith-api
+$ npm test           # Jest across slid-schema and slid
+$ npm run api:test   # cargo test for slid-api
 ````
 
 ---
 
 ## Configuration
-The API reads the following environment variables. See `slidesmith-api/.env.example`.
+The API reads the following environment variables. See `slid-api/.env.example`.
 
 | Environment Variable           | Default value | Description                          |
 | :----------------------------- | :------------ | :----------------------------------- |
-| SLIDESMITH_JWT_SECRET          | `[none]`      | The JWT signing secret. Must be set. |
-| SLIDESMITH_DB_HOST             | `localhost`   | Database Host                        |
-| SLIDESMITH_DB_PORT             | `5432`        | Database Port                        |
-| SLIDESMITH_DB_USERNAME         | `postgres`    | Database Username                    |
-| SLIDESMITH_DB_PASSWORD         | `[blank]`     | Database Password                    |
-| SLIDESMITH_DB_DATABASE         | `slidesmith`  | Database Name                        |
-| SLIDESMITH_OPENAI_API_KEY      | `[none]`      | OpenAI API key (GPT-4o + gpt-image-1)|
-| SLIDESMITH_UNSPLASH_ACCESS_KEY | `[none]`      | Unsplash API access key              |
-| SLIDESMITH_CHROMIUM_PATH       | `[auto]`      | Path to Chromium for PDF export      |
+| SLID_JWT_SECRET          | `[none]`      | The JWT signing secret. Must be set. |
+| SLID_DB_HOST             | `localhost`   | Database Host                        |
+| SLID_DB_PORT             | `5432`        | Database Port                        |
+| SLID_DB_USERNAME         | `postgres`    | Database Username                    |
+| SLID_DB_PASSWORD         | `[blank]`     | Database Password                    |
+| SLID_DB_DATABASE         | `slid`  | Database Name                        |
+| SLID_OPENAI_API_KEY      | `[none]`      | OpenAI API key (GPT-4o + gpt-image-1)|
+| SLID_UNSPLASH_ACCESS_KEY | `[none]`      | Unsplash API access key              |
+| SLID_CHROMIUM_PATH       | `[auto]`      | Path to Chromium for PDF export      |
 | ROCKET_ADDRESS                 | `127.0.0.1`   | HTTP Server Bind Address             |
 | ROCKET_PORT                    | `8000`        | HTTP Server Port                     |
 
@@ -98,7 +98,7 @@ The API reads the following environment variables. See `slidesmith-api/.env.exam
 
 | Method | Path                            | Auth? | Description                                          |
 | :----- | :------------------------------ | :---- | :--------------------------------------------------- |
-| GET    | /                               | ⬜     | Index. Returns `Slidesmith API`.                     |
+| GET    | /                               | ⬜     | Index. Returns `Slid API`.                     |
 | POST   | /auth/sign-up                   | ⬜     | Create a new account.                                |
 | POST   | /auth/sign-in                   | ⬜     | Sign in. Returns a JWT on success.                   |
 | GET    | /auth/me                        | ✅     | Get the authenticated user's details.                |
@@ -118,7 +118,7 @@ The API reads the following environment variables. See `slidesmith-api/.env.exam
 
 **All auth required requests**: add header `token` with the JWT as the value. Token lifetime: 4 hours.
 
-The versioned AI system prompts live in [slidesmith-api/PROMPTS.md](slidesmith-api/PROMPTS.md). The design philosophy and "how to add a layout/theme without regressing quality" guide lives in [slidesmith/DESIGN.md](slidesmith/DESIGN.md).
+The versioned AI system prompts live in [slid-api/PROMPTS.md](slid-api/PROMPTS.md). The design philosophy and "how to add a layout/theme without regressing quality" guide lives in [slid/DESIGN.md](slid/DESIGN.md).
 
 ---
 
@@ -182,5 +182,5 @@ Thanks!
 ---
 
 ## License
-**Slidesmith** is released under the MIT License.
+**Slid** is released under the MIT License.
 Check out the full license [here](LICENSE).

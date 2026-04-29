@@ -1,24 +1,27 @@
 {
-  "name": "slidesmith-monorepo",
+  "name": "slid-monorepo",
   "private": true,
   "version": "0.1.0",
   "license": "MIT",
-  "description": "Slidesmith — AI-powered, design-system-first slide deck creator. Monorepo containing the Vue 3 frontend, the @slidesmith/schema typed contract, and the Rust + Rocket API.",
+  "description": "Slid — AI-powered, design-system-first slide deck creator. Monorepo containing the Vue 3 frontend, the @slid/schema typed contract, and the Rust + Rocket API.",
   "workspaces": [
-    "slidesmith-schema",
-    "slidesmith"
+    "slid-schema",
+    "slid"
   ],
   "scripts": {
-    "dev": "npm run dev --workspace=slidesmith",
-    "build": "npm run build --workspace=slidesmith-schema && npm run build --workspace=slidesmith",
-    "build:schema": "npm run build --workspace=slidesmith-schema",
-    "build:app": "npm run build --workspace=slidesmith",
+    "dev": "npm run dev --workspace=slid",
+    "build": "npm run build --workspace=slid-schema && npm run build --workspace=slid",
+    "build:schema": "npm run build --workspace=slid-schema",
+    "build:app": "npm run build --workspace=slid",
     "test": "npm run test --workspaces --if-present",
-    "test:schema": "npm run test --workspace=slidesmith-schema",
-    "test:app": "npm run test --workspace=slidesmith",
+    "test:schema": "npm run test --workspace=slid-schema",
+    "test:app": "npm run test --workspace=slid",
     "lint": "npm run lint --workspaces --if-present",
-    "api:dev": "cargo run --manifest-path slidesmith-api/Cargo.toml",
-    "api:test": "cargo test --manifest-path slidesmith-api/Cargo.toml",
-    "api:migrate": "cargo run --manifest-path slidesmith-api/migration/Cargo.toml -- up"
+    "api:dev": "cargo run --manifest-path slid-api/Cargo.toml",
+    "api:test": "cargo test --manifest-path slid-api/Cargo.toml",
+    "api:migrate": "cargo run --manifest-path slid-api/migration/Cargo.toml -- up"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2"
   }
 }
